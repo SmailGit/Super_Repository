@@ -1,0 +1,4 @@
+data class UserDataClass(var name: String ) 
+{ 
+    var id: Int? = null 
+} 
