@@ -1,0 +1,39 @@
+class UserRepository { 
+    val userList = mutableListOf<UserDataClass>() 
+ 
+    fun findById(id: Int) : Int?{ 
+        var findingIndex: Int? = null 
+        for( i in 0..userList.size){ 
+            if(userList[i].id == id){ 
+                findingIndex = i 
+                println("user ${userList[i].name} is find") 
+            } else { 
+                findingIndex = null 
+                println("user with this id is not exist") 
+            } 
+            break 
+        } 
+        return findingIndex 
+    } 
+ 
+    fun insert(user: UserDataClass) { 
+        user.id = userList.size 
+        println(user.id) 
+        userList.add(user) 
+        println("${user.name} was added") 
+    } 
+ 
+    fun update(id: Int, user: UserDataClass) { 
+        var findingUser: Int? = findById(id) 
+        if (findingUser != null) { 
+            user.id = id 
+            userList[findingUser] = user 
+        } 
+    } 
+    fun delete(id: Int) { 
+        var findingUser: Int? = findById(id) 
+        if (findingUser != null) { 
+            userList.removeAt(findingUser) 
+        } 
+    } 
+} 
