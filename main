@@ -1,0 +1,13 @@
+fun main(args: Array<String>) { 
+    val repository: UserRepository = UserRepository() 
+ 
+    repository.insert(UserDataClass("Lololoshka")) 
+    repository.insert(UserDataClass("OmegaChad")) 
+ 
+    repository.findById(0) 
+    repository.delete(0) 
+    repository.findById(0) 
+    repository.findById(1) 
+    repository.update(1, UserDataClass("Sosiska")) 
+    repository.findById(1) 
+} 
